@@ -5,18 +5,23 @@ import os
 LimpiarPantalla = lambda: os.system('cls')
 SEPARADOR = ("*" * 20) + "\n"
 totales={}
+productos={}
 
 #Elaborado por Andrés Torres Montemayor
 def cargar():
-    productos={}
     cuenta=[]
     total=[]
     monto_total = 0
-    if productos:
-        clave = max(productos)+1
-    else:
-        clave = 1
+    print (SEPARADOR)
+    print("Registro de ventas")
+    print (SEPARADOR)
+    print("**Para finalizar la cuenta basta con dejar en blanco la descripcion del artículo**")
+
     while True:
+        if productos:
+            clave = max(productos) + 1
+        else:
+            clave = 1
         descripcion=input("Ingrese la descripcion:")
         if descripcion == "":
             break
@@ -26,6 +31,8 @@ def cargar():
             cuenta.append((descripcion,unidades_venta,precio))
             suma = (precio*unidades_venta)
             monto_total = suma + monto_total
+        clave = 1
+    print("El total a pagar es de $",monto_total," y la clave de cuenta es: ",clave)
     total.append(monto_total)
     totales[clave]=total
     productos[clave]=cuenta
@@ -34,6 +41,11 @@ def cargar():
 
 #Elaborado por Andrés Torres Montemayor
 def consulta(productos):
+    print (SEPARADOR)
+    print("Consulta de ventas")
+    print (SEPARADOR)
+    print("**Para finalizar la busqueda ponga 0 en la clave a buscar.**")
+
     if productos:
         buscar=int(input("Ingrese la clave de venta a consultar:"))
         if buscar in productos.keys():
@@ -75,5 +87,3 @@ def menu():
 
 
 menu()
-
-
