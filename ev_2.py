@@ -77,7 +77,7 @@ def reporte(reportes,productos):
             if buscar in reportes[x]:
                 lista.append(productos[x])
         archivo = pd.DataFrame(lista)
-        archivo.to_csv (r'reporte.csv',index=False, header=True) #No olvidar la extensión del archivo
+        archivo.to_csv (r'reporte.csv',index=False, header=True)
     else:
         print("No existen ventas registradas")
 
