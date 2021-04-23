@@ -67,10 +67,9 @@ def consulta(productos):
 def reporte(reportes,productos):
     lista=[]
     print (SEPARADOR)
-    print("Consulta de ventas")
+    print("Reporte de ventas")
     print (SEPARADOR)
 
-    print(reportes)
     if productos:
         buscar=input("Ingrese la fecha deseada para el reporte(aaa-mm-dd):")
         for x in reportes:
